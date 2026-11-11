@@ -1,0 +1,29 @@
+name: Repository checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  repository-sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required team files
+        shell: bash
+        run: |
+          set -e
+          test -f CLAUDE.md
+          test -f README.md
+          test -f docs/ARCHITECTURE.md
+          test -f docs/TASKS.md
+          test -f docs/DECISIONS.md
+          test -f docs/WORKFLOW.md
+          test -f docs/AGENT_CONTRACT.md
+          test -f .claude/agents/lead.md
+          test -f .claude/agents/ui-ux.md
+          test -f .claude/agents/frontend.md
+          test -f .claude/agents/backend.md
+          test -f .claude/agents/qa.md
+          echo "AI team foundation OK"
