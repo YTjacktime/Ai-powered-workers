@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+vendor/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build output
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Local/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Claude/local agent state
+.claude/local/
